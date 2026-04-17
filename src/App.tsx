@@ -625,6 +625,7 @@ Lot Size: ${results.lotSize}`;
       <footer className="px-10 py-10 border-t border-editorial-border flex flex-col md:flex-row justify-between gap-6 text-[10px] text-editorial-text-secondary uppercase tracking-[0.5px] bg-black/20">
         <div>&copy; 2026 FINANCIAL UTILITIES CORP. ALL RIGHTS RESERVED.</div>
         <div className="flex gap-8">
+          <a href="https://sameer-999.github.io/Trading-Journal-AI/" target="_blank" rel="noopener noreferrer" className="hover:text-editorial-accent">Trading Journal AI</a>
           <span>Terms of Analysis</span>
           <span>Risk Policy</span>
           <span>Financial Conduct</span>
