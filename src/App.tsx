@@ -114,13 +114,7 @@ export default function App() {
       tag: "Psychology",
       date: "Apr 17, 2026",
       excerpt: "Why the math behind your lot size is only half the battle. Learn to manage the emotional weight of your trade capital.",
-      content: `
-        The mathematical formula for position sizing is straightforward: Risk / (Stop Loss * Pip Value). However, the psychological execution of that formula is where most traders fail. 
-        
-        When a trader risks too much, the emotional burden of the potential loss often leads to "revenge trading" or closing winners too early. By calculating your lot size objectively, you remove the guesswork and align your trades with your quantitative edge. 
-        
-        Professional trading is about longevity. Longevity is a byproduct of math, and math is the antidote to fear.
-      `
+      content: "The mathematical formula for position sizing is straightforward: Risk / (Stop Loss * Pip Value). However, the psychological execution of that formula is where most traders fail.\n\nWhen a trader risks too much, the emotional burden of the potential loss often leads to 'revenge trading' or closing winners too early. By calculating your lot size objectively, you remove the guesswork and align your trades with your quantitative edge.\n\nProfessional trading is about longevity. Longevity is a byproduct of math, and math is the antidote to fear."
     },
     {
       id: 2,
@@ -128,13 +122,7 @@ export default function App() {
       tag: "Strategy",
       date: "Apr 15, 2026",
       excerpt: "Adapting your lot size calculations for NY and London session overlaps where slippage and spreads shift the math.",
-      content: `
-        Volatility is a double-edged sword. During session overlaps, the average true range (ATR) of pairs like GBPJPY or EURUSD can spike significantly. 
-        
-        A static 20-pip stop loss might work in the Asian session but is easily hunted in the first hour of London. For SEO-driven strategy, we recommend using Volatility-Adjusted Position Sizing. 
-        
-        If market volatility doubles, your stop loss distance should likely widen, which in turn means your lot size must decrease to keep your absolute dollar risk the same.
-      `
+      content: "Volatility is a double-edged sword. During session overlaps, the average true range (ATR) of pairs like GBPJPY or EURUSD can spike significantly.\n\nA static 20-pip stop loss might work in the Asian session but is easily hunted in the first hour of London. For SEO-driven strategy, we recommend using Volatility-Adjusted Position Sizing.\n\nIf market volatility doubles, your stop loss distance should likely widen, which in turn means your lot size must decrease to keep your absolute dollar risk the same."
     },
     {
       id: 3,
@@ -142,13 +130,143 @@ export default function App() {
       tag: "Technology",
       date: "Apr 12, 2026",
       excerpt: "How automated logging and AI pattern recognition are replacing standard spreadsheet journals for professional traders.",
-      content: `
-        The era of Excel spreadsheets for trading is coming to an end. Modern tools like Trading Journal AI use advanced pattern matching to show you exactly which setups yield the highest R:R. 
-        
-        By integrating your position sizing math with an AI-driven journal, you create a feedback loop. You aren't just calculating lot sizes for today; you are building a database of your trading behavior. 
-        
-        Studies show that traders who journal with AI tools reach consistency 3x faster than those who use manual methods.
-      `
+      content: "The era of Excel spreadsheets for trading is coming to an end. Modern tools like Trading Journal AI use advanced pattern matching to show you exactly which setups yield the highest R/R.\n\nBy integrating your position sizing math with an AI-driven journal, you create a feedback loop. You aren't just calculating lot sizes for today; you are building a database of your trading behavior.\n\nStudies show that traders who journal with AI tools reach consistency 3x faster than those who use manual methods."
+    },
+    {
+      id: 4,
+      title: "The 1% Rule: The Holy Grail of Longevity",
+      tag: "Risk",
+      date: "Apr 10, 2026",
+      excerpt: "Understanding why professional hedge fund managers rarely risk more than 1% of equity per trade setup.",
+      content: "The 1% rule is a simple but profound principle used by professional traders worldwide. It dictates that you never risk more than 1% of your account's total value on any single trade.\n\nWhy 1%? It protects you from the statistical inevitability of a 'losing streak.' Even a streak of 10 losses only reduces your capital by 10%, which is recoverable. If you risk 5% per trade, that same streak would wipe out half your account.\n\nConsistency isn't about giant wins; it's about staying in the game long enough for your edge to manifest."
+    },
+    {
+      id: 5,
+      title: "Setting Effective Stop Losses with ATR",
+      tag: "Technical",
+      date: "Apr 08, 2026",
+      excerpt: "Using the Average True Range indicator to set stops that breathe with the market rather than being arbitrary.",
+      content: "Arbitrary stop losses—like always using 20 pips—often lead to unnecessary losses. The market's environment changes daily. The Average True Range (ATR) indicator provides a mathematical way to adjust your stops based on current volatility.\n\nA common strategy is using 1.5x to 2x the current ATR value. This ensures your stop is outside the 'noise' of the current session. When volatility is high, your ATR stop will be wider, requiring a smaller lot size to keep your 1% risk intact.\n\nPrecision in stop placement is the first step toward master-level risk management."
+    },
+    {
+      id: 6,
+      title: "Trading the News: Scaling Your Position",
+      tag: "News",
+      date: "Apr 05, 2026",
+      excerpt: "How to handle high-impact news releases like NFP and CPI through strategic position sizing and cautious risk.",
+      content: "High-impact news events create 'slippage' and 'spread widening.' These two factors can make your stop loss less effective than usual.\n\nWhen trading news, many professionals choose to scale down their position size—often to 0.25% or 0.5% risk. This accounts for the potential of being filled at a worse price than intended. \n\nRemember: In news environments, the market doesn't move in pips; it moves in leaps. Adjusting your lot size down is your primary defense against unexpected price gaps."
+    },
+    {
+      id: 7,
+      title: "Drawdown: Understanding the Silent Killer",
+      tag: "Management",
+      date: "Apr 03, 2026",
+      excerpt: "The math of recovery: Why losing 50% of your account requires a 100% gain just to break even again.",
+      content: "Risk management is essentially about minimizing drawdown. Drawdown is the peak-to-trough decline during a specific period for an investment. \n\nThe math of loss is non-linear. A 10% loss requires an 11% gain to recover. A 25% loss requires a 33% gain. A 50% loss requires a staggering 100% gain just to get back to where you started.\n\nBy using our Lot Size Calculator for every trade, you ensure that drawdown remains a minor speed bump rather than a career-ending cliff."
+    },
+    {
+      id: 8,
+      title: "Confluence Scaling: Increasing Your Edge",
+      tag: "Strategy",
+      date: "Apr 01, 2026",
+      excerpt: "When to risk 0.5% vs 2%. Learning to grade your setups based on technical and fundamental confluence.",
+      content: "Not all setups are created equal. A trade with one signal (like a support bounce) is a 'C' setup. A trade with three signals (support, bullish engulfing, and RSI divergence) is an 'A' setup.\n\n'Dynamic Risking' involves adjusting your risk percentage based on the quality of the trade. You might risk 0.5% on 'C' trades and up to 1.5% or 2% on 'A' trades. \n\nBy journaling these confluences in your Trading Journal AI, you can mathematically prove which combinations of signals actually lead to higher profitability."
+    },
+    {
+      id: 9,
+      title: "The Compounding Effect in Forex Markets",
+      tag: "Finance",
+      date: "Mar 28, 2026",
+      excerpt: "How small, consistent gains lead to exponential growth through the power of geometric compounding.",
+      content: "Compounding is the eighth wonder of the world. In trading, compounding happens when you recalculate your lot size based on your new, higher account balance.\n\nIf you start with $1,000 and grow it by 5% a month, risking 1% per trade, your lot sizes will gradually increase as your equity grows. Over time, this leads to an exponential curve of wealth creation.\n\nThe key is patience. Trying to force compounding by over-leveraging creates the opposite effect: catastrophic loss."
+    },
+    {
+      id: 10,
+      title: "Correlation Risk: Pair Selection Strategy",
+      tag: "Analysis",
+      date: "Mar 25, 2026",
+      excerpt: "Why trading EURUSD and GBPUSD simultaneously might double your risk without you realizing it.",
+      content: "Diversification in Forex is often a myth. Because the US Dollar is the base or quote for most major pairs, different pairs often move together—this is called Correlation.\n\nIf you buy EURUSD and buy GBPUSD at the same time, you are essentially doubling your risk against the USD. If the USD strengthens, both trades will lose. \n\nTo manage correlation risk, check a correlation matrix before entering multiple positions. Ensure your total open risk across correlated pairs doesn't exceed your maximum total account risk (e.g., 5%)."
+    },
+    {
+      id: 11,
+      title: "Backtesting vs. Real-Time Execution",
+      tag: "Technical",
+      date: "Mar 22, 2026",
+      excerpt: "Bridging the gap between a strategy that works on paper and one that works with real money on the line.",
+      content: "A strategy that shows 80% win rate in backtesting often drops to 40% in real-time. Why? Because backtesting doesn't account for spread, slippage, and most importantly, human emotion.\n\nThe only way to bridge this gap is through forward-testing with small, calculated lot sizes. Using our calculator during this phase allows you to experience the market's dynamics without risking your entire capital.\n\nOnce your Trading Journal AI shows a consistent equity curve over 50 real-time trades, then you can consider scaling up."
+    },
+    {
+      id: 12,
+      title: "Cognitive Biases in Your Trading Journal",
+      tag: "Psychology",
+      date: "Mar 20, 2026",
+      excerpt: "Identifying 'Confirmation Bias' and 'Recency Bias' in your trade logs to improve objective decision-making.",
+      content: "Our brains are wired for survival, not for trading. Two major biases destroy traders: Confirmation Bias (only looking for reasons to stay in a trade) and Recency Bias (thinking the next trade will be like the last five).\n\nAn AI-powered journal is the ultimate cure. It doesn't have emotions. It strictly looks at the data of your entries, exits, and lot sizes to tell you the raw truth. \n\nWhen the data says your 'Friday afternoon trades' are always losers, you have to listen to the data, regardless of how you 'feel' about the next setup."
+    },
+    {
+      id: 13,
+      title: "Journaling: The Ultimate Performance Engine",
+      tag: "Productivity",
+      date: "Mar 18, 2026",
+      excerpt: "How the simple act of writing down your trades transforms you from a gambler into a professional business owner.",
+      content: "Trading is a business, not a hobby. No successful business operates without records. A trading journal is your business's ledger.\n\nBy documenting why you took a trade, the lot size used, and the emotional state you were in, you create a map of your progress. Over months, this map reveals your 'Edge.' \n\nA trader who journals is self-aware. A self-aware trader is a dangerous one in the market."
+    },
+    {
+      id: 14,
+      title: "Discipline in Quantitative Trading Environments",
+      tag: "Psychology",
+      date: "Mar 15, 2026",
+      excerpt: "Why staying disciplined with your risk model is more important than finding 'the perfect indicator.'",
+      content: "You don't need a 90% win rate to be wealthy. You need a positive expectancy and the discipline to follow your risk model. \n\nDiscipline means using the Lot Size Calculator even when you are on a winning streak and feel 'invincible.' It means taking the stop loss when hit, rather than moving it 'just a few more pips.'\n\nDiscipline is the bridge between goals and accomplishment in the world of financial markets."
+    },
+    {
+      id: 15,
+      title: "Leverage vs. Margin: A Detailed Breakdown",
+      tag: "Finance",
+      date: "Mar 12, 2026",
+      excerpt: "Demystifying the technical terms that often lead beginners to over-leverage and blow their accounts.",
+      content: "Leverage is a magnifying glass. It makes small price moves into large profits or losses. Margin is the security deposit required by your broker to use that leverage.\n\nHigh leverage (like 1:500) allows you to open large lot sizes with small capital. This is where the danger lies. Beginners often see large leverage as 'more money to play with.' \n\nProfessional traders view leverage as a tool for capital efficiency, always governed by their pre-calculated risk-per-trade. Never use leverage as a substitute for a small account balance."
+    },
+    {
+      id: 16,
+      title: "Scaling Out: Managing Your Profit Risk",
+      tag: "Strategy",
+      date: "Mar 09, 2026",
+      excerpt: "When and how to take partial profits to secure your gains while letting your 'runners' catch the big trends.",
+      content: "Scaling out is the art of closing part of your position as price moves in your favor. For example, closing 50% of your lots at the 1:1 reward level and moving your stop to break even.\n\nThis creates a 'risk-free' trade. It reduces the stress of holding a winner and ensures that you walk away with profit even if the market reverses. \n\nTrading Journal AI can track your 'Total R/R' vs. your 'Initial R/R' to help you optimize exactly when to scale out for maximum profitability."
+    },
+    {
+      id: 17,
+      title: "Identifying High-Quality Setups Automagically",
+      tag: "Technology",
+      date: "Mar 06, 2026",
+      excerpt: "Using AI pattern recognition to identify your personal 'Power Setup' that consistently hits 3:1 reward ratios.",
+      content: "Every trader has a 'Power Setup'—a specific set of conditions where they win 70% of the time. For some, it might be the European open breakout; for others, it's the daily support retest.\n\nIdentifying this manually is difficult. AI journals do this automatically by tagging your trades. \n\nOnce discovered, you can focus 100% of your energy and lot size on these high-probability events, effectively 'printing money' by ignoring the low-quality noise."
+    },
+    {
+      id: 18,
+      title: "Liquidity and Pips: Session-Based Math",
+      tag: "Technical",
+      date: "Mar 03, 2026",
+      excerpt: "How the choice of session influences spread, slippage, and the overall reliability of your lot size math.",
+      content: "The Forex market is open 24/5, but its liquidity isn't constant. The Asian session is often range-bound with higher spreads on crosses. The London and New York sessions offer the highest liquidity and tightest spreads.\n\nYour lot size calculation is only as good as your entry. In low-liquidity environments, you might pay 'hidden costs' through wider spreads. \n\nAlways factor in the session's characteristics. If trading outside major hours, consider widening your stop and reducing your lot size to compensate for the cost of doing business."
+    },
+    {
+      id: 19,
+      title: "Profitability: Win Rate vs. Reward Ratio",
+      tag: "Analysis",
+      date: "Mar 01, 2026",
+      excerpt: "Why a 30% win rate can make you a millionaire, provided your reward ratio is consistently above 3:1.",
+      content: "Most beginners obsess over win rate. Professionals obsess over Risk-to-Reward (R/R). \n\nIf you win 40% of the time but lose 1 unit on losses and gain 3 units on wins, you are highly profitable. This is the math of 'Expectancy.' \n\nOur integrated R/R Estimator helps you visualize this before you enter. If a setup doesn't offer at least a 2:1 R/R, it's often mathematically better to skip it and wait for a higher-quality opportunity."
+    },
+    {
+      id: 20,
+      title: "Protecting Your Capital: Risk Over Profit",
+      tag: "Management",
+      date: "Feb 26, 2026",
+      excerpt: "The fundamental shift in mindset: Thinking like a Risk Manager first and a Trader second.",
+      content: "Your final lesson is this: Your job as a trader is not to find winners. Your job is to manage risk. The winners take care of themselves.\n\nWhen you open this Lot Size Calculator, you are performing the most important task of your day. You are deciding how to defend your capital. \n\nIf you protect your downside, the upside will inevitably come. Log every decision, calculate every lot, and join the elite top 5% of traders using Trading Journal AI."
     }
   ];
 
