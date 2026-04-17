@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --color-editorial-bg: #0F0F0F;
+  --color-editorial-surface: #1A1A1A;
+  --color-editorial-border: #333333;
+  --color-editorial-accent: #E5B25D;
+  --color-editorial-text-primary: #FFFFFF;
+  --color-editorial-text-secondary: #888888;
+  
+  --font-serif: "Georgia", serif;
+  --font-editorial-sans: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
+}
+
+body {
+  @apply bg-editorial-bg text-editorial-text-primary font-editorial-sans;
+}
