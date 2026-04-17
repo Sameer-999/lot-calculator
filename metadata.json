@@ -1,6 +1,6 @@
 {
   "name": "Forex Lot Size Calculator",
-  "description": "A professional tool for traders to calculate position sizes, risk amounts, and managing trade risk effectively with real-time updates and multi-currency support.",
+  "description": "Professional Forex Lot Size Calculator with built-in position sizing logic, Risk/Reward estimator, and daily Market Insights blogs to help traders master risk management and strategy.",
   "requestFramePermissions": [],
   "majorCapabilities": []
 }
