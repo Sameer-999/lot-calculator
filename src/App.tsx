@@ -67,10 +67,10 @@ const InputField = ({
   type?: string,
   suffix?: string
 }) => (
-  <div className="flex flex-col gap-2">
-    <label className="text-[10px] uppercase tracking-[1px] text-editorial-text-secondary font-semibold flex items-center gap-2">
-      <Icon size={12} />
-      {label} {suffix && `(${suffix})`}
+  <div className="flex flex-col gap-2 group">
+    <label className="text-[10px] uppercase tracking-[2px] text-editorial-text-secondary font-bold flex items-center gap-2 group-focus-within:text-editorial-accent transition-colors">
+      <Icon size={12} className="opacity-50 group-focus-within:opacity-100 transition-opacity" />
+      {label} {suffix && <span className="text-[9px] opacity-60 ml-auto">({suffix})</span>}
     </label>
     <div className="relative">
       <input
@@ -78,7 +78,7 @@ const InputField = ({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full bg-editorial-surface border border-editorial-border rounded-sm px-3 py-2 outline-hidden focus:border-editorial-accent transition-all text-editorial-text-primary font-editorial-sans"
+        className="w-full bg-editorial-surface/40 border border-editorial-border rounded-sm px-4 py-3 outline-hidden focus:border-editorial-accent/60 focus:bg-editorial-surface transition-all text-editorial-text-primary font-editorial-sans text-sm ring-editorial-accent/20 focus:ring-4 hover:border-editorial-text-secondary/30"
       />
     </div>
   </div>
@@ -349,34 +349,41 @@ Lot Size: ${results.lotSize}`;
     <div className="min-h-screen bg-editorial-bg text-editorial-text-primary flex flex-col font-editorial-sans border border-editorial-border selection:bg-editorial-accent selection:text-black">
       
       {/* Editorial Header */}
-      <header className="px-10 py-6 border-b border-editorial-border flex justify-between items-baseline sticky top-0 bg-editorial-bg/90 backdrop-blur-sm z-50">
-        <div>
-          <h1 className="font-serif text-[32px] font-normal tracking-[-0.5px]">
-            Position Size <span className="text-editorial-text-secondary">&mdash;</span> Precise
-          </h1>
-          <div className="text-[11px] uppercase tracking-[2px] text-editorial-text-secondary">Risk Management Terminal</div>
+      <header className="px-6 lg:px-10 py-6 border-b border-editorial-border flex justify-between items-center sticky top-0 bg-editorial-bg/95 backdrop-blur-md z-50">
+        <div className="flex items-center gap-4">
+          <div className="w-8 h-8 bg-editorial-accent rounded-sm flex items-center justify-center text-black font-bold text-lg select-none">L</div>
+          <div>
+            <h1 className="font-heading text-xl lg:text-2xl font-bold tracking-tight">
+              Position<span className="text-editorial-accent">Size</span>
+            </h1>
+            <div className="text-[9px] uppercase tracking-[2px] text-editorial-text-secondary font-semibold opacity-60">Professional Terminal v1.0.4</div>
+          </div>
         </div>
-        <div className="flex items-center gap-6">
-          <nav className="hidden lg:flex items-center gap-6 mr-6 border-r border-editorial-border pr-6">
-            <a href="#calculator" className="text-[10px] uppercase tracking-[2px] text-editorial-text-secondary hover:text-white transition-colors">Terminal</a>
-            <a href="#insights" className="text-[10px] uppercase tracking-[2px] text-editorial-text-secondary hover:text-white transition-colors">Market Insights</a>
+        <div className="flex items-center gap-4 lg:gap-8">
+          <nav className="hidden xl:flex items-center gap-8 border-r border-editorial-border pr-8">
+            <a href="#calculator" className="text-[10px] uppercase tracking-[2px] text-editorial-text-secondary hover:text-editorial-accent transition-colors font-bold">Terminal</a>
+            <a href="#insights" className="text-[10px] uppercase tracking-[2px] text-editorial-text-secondary hover:text-editorial-accent transition-colors font-bold">Insights</a>
           </nav>
           <a 
             href="https://sameer-999.github.io/Trading-Journal-AI/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-[11px] uppercase tracking-[2px] text-editorial-accent hover:text-white transition-colors border border-editorial-accent/30 px-4 py-2 rounded-sm"
+            className="text-[10px] uppercase tracking-[1.5px] bg-editorial-accent text-black font-bold px-4 lg:px-6 py-2.5 rounded-sm hover:scale-[1.02] active:scale-[0.98] transition-all"
           >
-            Launch Trading Journal &rarr;
+            Launch Journal
           </a>
-          <div className="hidden md:block text-[11px] uppercase tracking-[2px] text-editorial-text-secondary">V 1.0.4 &middot; Session Active</div>
         </div>
       </header>
 
-      <main id="calculator" className="grid grid-cols-1 lg:grid-cols-[420px_1fr] border-b border-editorial-border">
+      <main id="calculator" className="grid grid-cols-1 lg:grid-cols-[400px_1fr] border-b border-editorial-border">
         
         {/* Left Side: Inputs */}
-        <section className="border-r border-editorial-border p-10 flex flex-col gap-6">
+        <section className="border-r border-editorial-border p-6 lg:p-10 flex flex-col gap-8 bg-editorial-surface/20">
+          <div className="flex items-center gap-3 mb-2">
+            <RefreshCcw size={16} className="text-editorial-accent" />
+            <h2 className="font-heading text-lg font-semibold tracking-tight uppercase">Configuration</h2>
+          </div>
+          
           <div className="space-y-6">
             <InputField 
               label="Account Balance" 
@@ -466,39 +473,49 @@ Lot Size: ${results.lotSize}`;
         </section>
 
         {/* Right Side: Results */}
-        <section className="p-10 bg-[radial-gradient(circle_at_top_right,#1a150e,#0f0f0f)] flex flex-col justify-center min-h-[500px]">
-          <div className="w-20 h-1 bg-editorial-accent mb-6" />
+        <section className="p-6 lg:p-20 bg-[radial-gradient(circle_at_top_right,#1a1a1a,#0a0a0a)] flex flex-col justify-center relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none">
+             <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-editorial-accent blur-[120px]" />
+          </div>
+
+          <div className="w-16 h-1 bg-editorial-accent mb-12 relative z-10" />
           
           <AnimatePresence mode="wait">
             {results ? (
               <motion.div
                 key="results"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-12"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                className="relative z-10 space-y-12"
               >
-                <div className="border-t border-editorial-border pt-4">
-                  <div className="font-serif italic text-sm text-editorial-text-secondary mb-2 whitespace-nowrap">Capital at Risk</div>
-                  <div className="text-[48px] font-light tracking-[-1px] text-editorial-accent font-editorial-sans">
-                    ${results.riskAmount.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
+                  <div className="border-l-2 border-editorial-border pl-6 group">
+                    <div className="font-heading text-[10px] uppercase tracking-[3px] text-editorial-text-secondary mb-3 group-hover:text-editorial-accent transition-colors">Capital at Risk</div>
+                    <div className="text-4xl lg:text-5xl font-bold tracking-tighter font-heading text-editorial-accent">
+                      ${results.riskAmount.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                    </div>
+                  </div>
+
+                  <div className="border-l-2 border-editorial-border pl-6 group">
+                    <div className="font-heading text-[10px] uppercase tracking-[3px] text-editorial-text-secondary mb-3 group-hover:text-editorial-accent transition-colors">Pip Value</div>
+                    <div className="text-4xl lg:text-5xl font-bold tracking-tighter font-heading text-editorial-accent">
+                      ${results.pipValueUsed.toFixed(2)}
+                    </div>
                   </div>
                 </div>
 
-                <div className="border-t border-editorial-border pt-4">
-                  <div className="font-serif italic text-sm text-editorial-text-secondary mb-2 whitespace-nowrap">Pip Value (Standard)</div>
-                  <div className="text-[48px] font-light tracking-[-1px] text-editorial-accent font-editorial-sans">
-                    ${results.pipValueUsed.toFixed(2)}
+                <div className="border-t-2 border-editorial-border pt-10">
+                  <div className="font-heading text-[10px] uppercase tracking-[3px] text-editorial-text-secondary mb-6">Recommended Position Size</div>
+                  <div className="flex flex-col sm:flex-row items-baseline gap-4">
+                    <span className="text-6xl lg:text-8xl font-bold tracking-tighter font-heading text-editorial-text-primary leading-none">
+                      {results.lotSize}
+                    </span>
+                    <span className="text-xl lg:text-2xl font-heading font-bold text-editorial-accent uppercase tracking-widest">LOTS</span>
                   </div>
-                </div>
-
-                <div className="col-span-1 md:col-span-2 border-t border-editorial-border pt-4">
-                  <div className="font-serif italic text-sm text-editorial-text-secondary mb-2">Recommended Position Size</div>
-                  <div className="text-[72px] font-light tracking-[-2px] text-editorial-accent font-editorial-sans leading-none">
-                    {results.lotSize} <span className="text-lg font-sans text-editorial-text-secondary uppercase tracking-wider ml-1">LOTS</span>
-                  </div>
-                  <div className="mt-4 text-[10px] text-editorial-text-secondary uppercase tracking-[1px] font-medium opacity-50">
-                    Units equivalent: <span className="text-editorial-text-primary">{results.positionUnits.toLocaleString()}</span>
+                  <div className="mt-8 flex items-center gap-4 text-[11px] text-editorial-text-secondary uppercase tracking-[2px] font-bold">
+                    <div className="w-8 h-[1px] bg-editorial-border" />
+                    Units: <span className="text-editorial-text-primary font-mono">{results.positionUnits.toLocaleString()}</span>
                   </div>
                 </div>
 
@@ -528,42 +545,53 @@ Lot Size: ${results.lotSize}`;
       </main>
 
       {/* Blogs / Insights Section for SEO */}
-      <section id="insights" className="max-w-7xl mx-auto px-10 py-24 w-full">
-        <div className="flex flex-col md:flex-row justify-between items-baseline border-b border-editorial-border pb-8 mb-16">
-          <h2 className="font-serif text-[48px] font-light tracking-[-1px]">Market Insights <span className="text-editorial-text-secondary">&mdash;</span> Strategy</h2>
-          <div className="text-[11px] uppercase tracking-[2px] text-editorial-text-secondary">Official Trade Analysis & Education</div>
+      <section id="insights" className="max-w-7xl mx-auto px-6 lg:px-10 py-24 w-full">
+        <div className="flex flex-col md:flex-row justify-between items-end border-b-2 border-editorial-border pb-10 mb-20">
+          <div>
+            <h2 className="font-heading text-[48px] lg:text-[64px] font-bold tracking-tighter leading-none mb-4">Market <span className="text-editorial-accent italic">Insights</span></h2>
+            <p className="text-editorial-text-secondary text-base lg:text-lg max-w-xl font-medium opacity-80">Advanced strategy, risk psychology, and quantitative analysis for modern traders.</p>
+          </div>
+          <div className="hidden md:block text-[11px] uppercase tracking-[3px] text-editorial-accent font-bold pb-2 border-b border-editorial-accent">Official Intelligence</div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20">
           {blogPosts.map((post) => (
             <article 
               key={post.id} 
-              className="group cursor-pointer"
+              className="group cursor-pointer flex flex-col pt-8 border-t border-editorial-border hover:border-editorial-accent transition-all duration-500"
               onClick={() => setSelectedPost(post.id)}
             >
-              <div className="text-[10px] uppercase tracking-[2px] text-editorial-accent font-bold mb-4 flex items-center gap-4">
-                {post.tag} <span>&middot;</span> <span className="text-editorial-text-secondary font-medium">{post.date}</span>
+              <div className="text-[10px] uppercase tracking-[3px] text-editorial-accent font-bold mb-6 flex items-center justify-between">
+                <span>{post.tag}</span>
+                <span className="text-editorial-text-secondary opacity-60 font-mono tracking-normal">{post.date}</span>
               </div>
-              <h3 className="font-serif text-2xl mb-4 group-hover:text-editorial-accent transition-colors leading-tight">{post.title}</h3>
-              <p className="text-sm text-editorial-text-secondary leading-relaxed mb-6">
+              <h3 className="font-heading text-2xl lg:text-3xl font-bold mb-6 group-hover:translate-x-1 transition-transform duration-300 leading-tight tracking-tight">
+                {post.title}
+              </h3>
+              <p className="text-sm text-editorial-text-secondary leading-relaxed mb-8 line-clamp-3">
                 {post.excerpt}
               </p>
-              <div className="h-[1px] w-full bg-editorial-border group-hover:bg-editorial-accent transition-colors" />
+              <div className="mt-auto flex items-center gap-2 text-[10px] uppercase tracking-[2px] font-bold text-editorial-text-primary group-hover:text-editorial-accent transition-colors">
+                Read Analysis <span className="group-hover:translate-x-2 transition-transform">&rarr;</span>
+              </div>
             </article>
           ))}
         </div>
 
-        <div className="mt-20 p-12 border border-editorial-border text-center bg-editorial-surface/30">
-          <h4 className="font-serif text-3xl mb-4 italic">Elevate your trading edge.</h4>
-          <p className="text-editorial-text-secondary max-w-2xl mx-auto mb-8">
-            The Lot Size Calculator is the first step. The second is consistent journaling. Join thousands of traders using our AI-driven journal to find their profitable patterns.
-          </p>
-          <a 
-            href="https://sameer-999.github.io/Trading-Journal-AI/" 
-            className="px-10 py-4 bg-editorial-accent text-black font-bold text-[11px] uppercase tracking-[2px] hover:opacity-90 transition-all inline-block"
-          >
-            Start Your Journey &rarr;
-          </a>
+        <div className="mt-32 p-8 lg:p-20 border-2 border-editorial-accent/30 rounded-sm text-center relative overflow-hidden group">
+          <div className="absolute inset-0 bg-editorial-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+          <div className="relative z-10">
+            <h4 className="font-serif text-3xl lg:text-5xl mb-6 italic tracking-tight italic">Elevate your trading edge.</h4>
+            <p className="text-editorial-text-secondary max-w-2xl mx-auto mb-10 text-lg leading-relaxed">
+              The Lot Size Calculator is the first step. The second is consistent journaling. Join thousands of traders using our AI-driven journal to find their profitable patterns.
+            </p>
+            <a 
+              href="https://sameer-999.github.io/Trading-Journal-AI/" 
+              className="px-12 py-5 bg-editorial-accent text-black font-bold text-[12px] uppercase tracking-[3px] hover:scale-105 active:scale-95 transition-all inline-block shadow-2xl shadow-editorial-accent/20"
+            >
+              Start Journaling Now &rarr;
+            </a>
+          </div>
         </div>
       </section>
 
@@ -578,44 +606,53 @@ Lot Size: ${results.lotSize}`;
             onClick={() => setSelectedPost(null)}
           >
             <motion.div 
-              initial={{ scale: 0.95, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.95, y: 20 }}
-              className="bg-editorial-bg border border-editorial-border max-w-2xl w-full max-h-[80vh] overflow-y-auto p-12 relative"
+              initial={{ scale: 0.98, y: 10, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.98, y: 10, opacity: 0 }}
+              className="bg-editorial-bg border-x border-editorial-border max-w-3xl w-full max-h-[90vh] overflow-y-auto p-1 zero-scrollbar shadow-2xl relative"
               onClick={(e) => e.stopPropagation()}
             >
-              <button 
-                onClick={() => setSelectedPost(null)}
-                className="absolute top-8 right-8 text-[11px] uppercase tracking-[2px] text-editorial-text-secondary hover:text-editorial-accent transition-colors"
-              >
-                Close &times;
-              </button>
-              
-              {blogPosts.find(p => p.id === selectedPost) && (
-                <>
-                  <div className="text-[10px] uppercase tracking-[2px] text-editorial-accent font-bold mb-4">
-                    {blogPosts.find(p => p.id === selectedPost)?.tag}
-                  </div>
-                  <h2 className="font-serif text-4xl mb-8 leading-tight">
-                    {blogPosts.find(p => p.id === selectedPost)?.title}
-                  </h2>
-                  <div className="h-1 w-20 bg-editorial-accent mb-10" />
-                  <div className="prose prose-invert prose-sm leading-relaxed text-editorial-text-secondary">
-                    {blogPosts.find(p => p.id === selectedPost)?.content.split('\n\n').map((para, i) => (
-                      <p key={i} className="mb-6">{para.trim()}</p>
-                    ))}
-                  </div>
-                  <div className="mt-12 pt-10 border-t border-editorial-border">
-                    <p className="text-[11px] uppercase tracking-[2px] text-editorial-text-secondary mb-6">Master your execution:</p>
-                    <a 
-                      href="https://sameer-999.github.io/Trading-Journal-AI/" 
-                      className="inline-block py-4 px-8 border border-editorial-accent text-editorial-accent text-[11px] uppercase tracking-[2px] font-bold hover:bg-editorial-accent hover:text-black transition-all"
-                    >
-                      Log this strategy in AI Journal &rarr;
-                    </a>
-                  </div>
-                </>
-              )}
+              <div className="p-8 lg:p-16 border border-editorial-border h-full">
+                <button 
+                  onClick={() => setSelectedPost(null)}
+                  className="absolute top-10 right-10 w-10 h-10 rounded-full border border-editorial-border flex items-center justify-center text-xl text-editorial-text-secondary hover:text-editorial-accent hover:border-editorial-accent transition-all duration-300"
+                >
+                  &times;
+                </button>
+                
+                {blogPosts.find(p => p.id === selectedPost) && (
+                  <>
+                    <div className="text-[11px] uppercase tracking-[4px] text-editorial-accent font-bold mb-6 flex items-center gap-4">
+                      {blogPosts.find(p => p.id === selectedPost)?.tag}
+                      <div className="w-12 h-[1px] bg-editorial-accent" />
+                    </div>
+                    <h2 className="font-heading text-4xl lg:text-5xl font-bold mb-10 leading-[1.1] tracking-tighter">
+                      {blogPosts.find(p => p.id === selectedPost)?.title}
+                    </h2>
+                    <div className="flex items-center gap-6 mb-12 text-[10px] uppercase tracking-[2px] text-editorial-text-secondary font-bold">
+                      <span>Article &middot; {blogPosts.find(p => p.id === selectedPost)?.date}</span>
+                      <span>Read Time &middot; 4 Min</span>
+                    </div>
+                    <div className="prose prose-invert prose-lg leading-relaxed text-editorial-text-secondary font-medium">
+                      {blogPosts.find(p => p.id === selectedPost)?.content.split('\n\n').map((para, i) => (
+                        <p key={i} className="mb-8">{para.trim()}</p>
+                      ))}
+                    </div>
+                    <div className="mt-20 pt-12 border-t border-editorial-border">
+                      <div className="p-8 bg-editorial-surface/30 border border-editorial-border rounded-sm">
+                        <p className="text-[12px] uppercase tracking-[2px] text-editorial-text-primary font-bold mb-6">Quantitative Performance Tracking</p>
+                        <p className="text-sm text-editorial-text-secondary mb-8 leading-relaxed italic">"You cannot manage what you do not measure. This strategy is only as powerful as your consistency in logging it."</p>
+                        <a 
+                          href="https://sameer-999.github.io/Trading-Journal-AI/" 
+                          className="inline-block py-4 px-10 bg-editorial-accent text-black text-[11px] uppercase tracking-[3px] font-bold hover:brightness-110 active:scale-95 transition-all w-full text-center"
+                        >
+                          Launch Trading Journal AI &rarr;
+                        </a>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
             </motion.div>
           </motion.div>
         )}

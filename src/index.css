@@ -1,18 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-editorial-bg: #0F0F0F;
-  --color-editorial-surface: #1A1A1A;
-  --color-editorial-border: #333333;
-  --color-editorial-accent: #E5B25D;
-  --color-editorial-text-primary: #FFFFFF;
-  --color-editorial-text-secondary: #888888;
+  --color-editorial-bg: #0A0A0A;
+  --color-editorial-surface: #141414;
+  --color-editorial-border: #262626;
+  --color-editorial-accent: #D4AF37; /* More refined gold */
+  --color-editorial-text-primary: #F5F5F7;
+  --color-editorial-text-secondary: #A1A1AA;
   
-  --font-serif: "Georgia", serif;
-  --font-editorial-sans: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  --font-mono: "Courier New", Courier, monospace;
+  --font-serif: "Playfair Display", serif;
+  --font-editorial-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
 body {
-  @apply bg-editorial-bg text-editorial-text-primary font-editorial-sans;
+  @apply bg-editorial-bg text-editorial-text-primary font-editorial-sans antialiased;
 }
