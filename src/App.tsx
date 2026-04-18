@@ -107,6 +107,38 @@ export default function App() {
   // Blog State
   const [selectedPost, setSelectedPost] = useState<number | null>(null);
 
+  // URL Sync for Indexing
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const articleId = params.get('article');
+    if (articleId) {
+      setSelectedPost(parseInt(articleId));
+    }
+
+    const handlePopState = () => {
+      const p = new URLSearchParams(window.location.search);
+      const id = p.get('article');
+      setSelectedPost(id ? parseInt(id) : null);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const openPost = (id: number) => {
+    setSelectedPost(id);
+    const url = new URL(window.location.href);
+    url.searchParams.set('article', id.toString());
+    window.history.pushState({}, '', url);
+  };
+
+  const closePost = () => {
+    setSelectedPost(null);
+    const url = new URL(window.location.href);
+    url.searchParams.delete('article');
+    window.history.pushState({}, '', url);
+  };
+
   const blogPosts = [
     {
       id: 1,
@@ -559,7 +591,7 @@ Lot Size: ${results.lotSize}`;
             <article 
               key={post.id} 
               className="group cursor-pointer flex flex-col pt-8 border-t border-editorial-border hover:border-editorial-accent transition-all duration-500"
-              onClick={() => setSelectedPost(post.id)}
+              onClick={() => openPost(post.id)}
             >
               <div className="text-[10px] uppercase tracking-[3px] text-editorial-accent font-bold mb-6 flex items-center justify-between">
                 <span>{post.tag}</span>
@@ -603,7 +635,7 @@ Lot Size: ${results.lotSize}`;
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl flex items-center justify-center p-6"
-            onClick={() => setSelectedPost(null)}
+            onClick={closePost}
           >
             <motion.div 
               initial={{ scale: 0.98, y: 10, opacity: 0 }}
@@ -614,7 +646,7 @@ Lot Size: ${results.lotSize}`;
             >
               <div className="p-8 lg:p-16 border border-editorial-border h-full">
                 <button 
-                  onClick={() => setSelectedPost(null)}
+                  onClick={closePost}
                   className="absolute top-10 right-10 w-10 h-10 rounded-full border border-editorial-border flex items-center justify-center text-xl text-editorial-text-secondary hover:text-editorial-accent hover:border-editorial-accent transition-all duration-300"
                 >
                   &times;
